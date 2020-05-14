@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState, useEffect} from 'react';
+import { Results } from './components'
+import { retrieveAllBeers } from './logic'
 
 function App() {
+  const [view, setView] = useState('')
+  const [results, setResults] = useState()
+
+  useEffect(() => {
+    handleAllBeers()
+  }, [])
+
+  async function handleAllBeers () {
+    const results = await retrieveAllBeers()
+    console.log(results)
+    setResults(results)
+    setView('results')
+  } 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className="App-title">Punk Beer! </h1>
+      {view === 'results' && ( <Results results = {results}/>)}
     </div>
   );
 }
