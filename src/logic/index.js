@@ -1,5 +1,9 @@
 import retrieveAllBeers from './retrieve-all-beers'
+import retrieveABV from './retrieve-abv'
+import retrieveIBU from './retrieve-ibu'
 
 export {
-    retrieveAllBeers
+    retrieveAllBeers,
+    retrieveABV,
+    retrieveIBU
 }

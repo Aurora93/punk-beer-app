@@ -69,6 +69,11 @@ img {
   height: 100vh;
 }
 
+form {
+  width: 100vw;
+  padding: 0 30%;
+}
+
 ul {
   list-style: none;
   width: 90%;
